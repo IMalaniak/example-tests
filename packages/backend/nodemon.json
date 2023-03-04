@@ -1,0 +1,8 @@
+{
+  "verbose": true,
+  "ignore": ["test/*"],
+  "watch": ["./src"],
+  "delay": 1000,
+  "exec": "npm run dev",
+  "ext": "ts"
+}

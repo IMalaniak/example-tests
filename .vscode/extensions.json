@@ -1,0 +1,7 @@
+{
+  "recommendations": [
+    "cucumberopen.cucumber-official",
+    "hbenl.vscode-test-explorer",
+    "kavod-io.vscode-jest-test-adapter"
+  ]
+}
