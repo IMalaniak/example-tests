@@ -1,0 +1,15 @@
+node_modules
+cdk.out
+.DS_Store
+npm-debug.log*
+*.tsbuildinfo
+tmp*
+dist
+static
+/.cache
+/build
+/public/build
+
+/app/tailwind.css
+sessions
+/cypress/videos

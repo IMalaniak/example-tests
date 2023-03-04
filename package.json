@@ -1,0 +1,56 @@
+{
+  "name": "testing",
+  "version": "1.0.0",
+  "description": "Demonstration of different test types and strategies",
+  "main": "index.js",
+  "scripts": {
+    "start:fe": "npm start --workspace packages/frontend",
+    "start:be": "npm start --workspace packages/backend",
+    "test": "npm test --workspaces --if-present",
+    "cucumber": "cucumber-js --require-module ts-node/register --require 'features/**/*.ts' --publish-quiet",
+    "lint": "npm run lint --workspaces --if-present",
+    "lint:fix": "npm run lint:fix --workspaces --if-present",
+    "prepare": "husky install",
+    "pretty-quick": "pretty-quick --staged",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run"
+  },
+  "engines": {
+    "node": "18.14.2"
+  },
+  "keywords": [
+    "tests",
+    "TDD",
+    "BDD",
+    "unit",
+    "tests",
+    "integration",
+    "tests",
+    "e2e",
+    "tests",
+    "ui",
+    "tests"
+  ],
+  "author": "Ivan Malaniak",
+  "license": "ISC",
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "@cucumber/cucumber": "9.0.0",
+    "@types/node": "18.14.4",
+    "@types/prettier": "2.7.2",
+    "@typescript-eslint/eslint-plugin": "5.54.0",
+    "@typescript-eslint/parser": "5.54.0",
+    "cypress": "12.7.0",
+    "eslint-config-prettier": "8.6.0",
+    "eslint-plugin-import": "2.27.5",
+    "eslint-plugin-node": "11.1.0",
+    "eslint-plugin-prettier": "4.2.1",
+    "eslint-plugin-simple-import-sort": "10.0.0",
+    "get-port-please": "3.0.1",
+    "husky": "8.0.3",
+    "prettier": "2.8.4",
+    "pretty-quick": "3.1.3"
+  }
+}
