@@ -6,6 +6,8 @@
   "scripts": {
     "test": "jest",
     "dev": "ts-node -r dotenv/config src/index.ts",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx --max-warnings 0 src",
+    "lint:fix": "eslint --ext .js,.jsx,.ts,.tsx --fix --max-warnings 0 src",
     "start": "nodemon"
   },
   "keywords": [

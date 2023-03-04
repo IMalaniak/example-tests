@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { WeatherResponse } from '../../../../backend/src/types';
 import Cloud from '../icons/Cloud';
 import Sun from '../icons/Sun';
