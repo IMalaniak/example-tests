@@ -13,3 +13,4 @@ static
 /app/tailwind.css
 sessions
 /cypress/videos
+coverage
