@@ -7,27 +7,29 @@ import { weatherController } from './weather.controller';
 // when writing integration tests, we can mock external services like database or external APIs if this is not directly related to the point of the integration test
 
 describe('Weather Controller', () => {
-  it('should return the weather and the city', async () => {
-    const city = 'London';
+  describe('GET /', () => {
+    it('should respond with the weather and a city', async () => {
+      const city = 'London';
 
-    const req = {
-      query: {
+      const req = {
+        query: {
+          city,
+        },
+      } as unknown as Request;
+
+      const res = {
+        send: jest.fn(),
+      } as unknown as Response;
+
+      weatherController(req, res);
+
+      expect(res.send).toHaveBeenCalledWith({
+        weather: {
+          description: expect.any(String),
+          temperature: expect.any(Number),
+        },
         city,
-      },
-    } as unknown as Request;
-
-    const res = {
-      send: jest.fn(),
-    } as unknown as Response;
-
-    weatherController(req, res);
-
-    expect(res.send).toHaveBeenCalledWith({
-      weather: {
-        description: expect.any(String),
-        temperature: expect.any(Number),
-      },
-      city,
+      });
     });
   });
 });

@@ -1,0 +1,7 @@
+{
+  "weather": {
+    "temperature": 24,
+    "description": "warm"
+  },
+  "city": "Warsaw"
+}

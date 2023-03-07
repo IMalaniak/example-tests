@@ -13,4 +13,5 @@ static
 /app/tailwind.css
 sessions
 /cypress/videos
+/cypress/screenshots
 coverage

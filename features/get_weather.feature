@@ -4,5 +4,6 @@ Feature: Get weather description in the given city
     Scenario: Get weather description in the given city
         Given the city name is "Warsaw"
         When the user requests the weather
-        Then the weather description can be either "warm" or "cold"
-        And the response contains the city name
+        Then the response contains the city name
+        And the weather description can be either "warm" or "cold"
+        And the temperature is between -10 and 30

@@ -37,3 +37,11 @@ Then(
     ok([s, s2].includes(this.responseBody.weather.description));
   }
 );
+
+Then(
+  'the temperature is between {int} and {int}',
+  async function (this: WorldWithParams, int: number, int2: number) {
+    ok(int <= this.responseBody.weather.temperature);
+    ok(this.responseBody.weather.temperature <= int2);
+  }
+);
