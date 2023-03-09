@@ -1,16 +1,10 @@
-export enum Weather {
-  COLD = 'cold',
-  WARM = 'warm',
-}
+import { WeatherDescription, WeatherResponse } from '../../types';
 
-export const describeWeather = (temperature: number): Weather => {
-  return temperature > 20 ? Weather.WARM : Weather.COLD;
+export const describeWeather = (temperature: number): WeatherDescription => {
+  return temperature > 20 ? WeatherDescription.WARM : WeatherDescription.COLD;
 };
 
-const getWeather = (): {
-  temperature: number;
-  description: Weather;
-} => {
+const getWeather = (): WeatherResponse['weather'] => {
   // for the purpose of demo, we'll randomise the temperature between -10 and 30
   const temperature = Math.floor(Math.random() * 40) - 10;
 

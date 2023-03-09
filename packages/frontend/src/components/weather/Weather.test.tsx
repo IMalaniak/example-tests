@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 
-import { WeatherDescription } from '../../../../backend/src/types';
+import { WeatherDescription } from '../../types';
 import { Weather } from './Weather';
 
 it('should render sun if it is warm', async () => {

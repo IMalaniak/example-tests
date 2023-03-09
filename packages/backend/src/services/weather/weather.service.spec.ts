@@ -1,4 +1,5 @@
-import { describeWeather, Weather } from './weather.service';
+import { WeatherDescription } from '../../types';
+import { describeWeather } from './weather.service';
 
 // This is a unit test, so we don't need to mock anything
 // We can just import the function and test it
@@ -7,11 +8,11 @@ import { describeWeather, Weather } from './weather.service';
 describe('Weather Service', () => {
   describe('describeWeather', () => {
     it('should return warm if it is above 20', () => {
-      expect(describeWeather(23)).toEqual(Weather.WARM);
+      expect(describeWeather(23)).toEqual(WeatherDescription.WARM);
     });
 
     it('should return cold if it is below 20', () => {
-      expect(describeWeather(9)).toEqual(Weather.COLD);
+      expect(describeWeather(9)).toEqual(WeatherDescription.COLD);
     });
   });
 });

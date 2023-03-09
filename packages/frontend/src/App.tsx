@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
-import { WeatherResponse } from '../../backend/src/types';
 import { Weather } from './components';
+import { WeatherResponse } from './types';
 
 function App() {
   const [weather, setWeather] = useState<WeatherResponse['weather'] | null>(null);
