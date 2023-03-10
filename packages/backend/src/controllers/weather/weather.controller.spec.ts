@@ -25,6 +25,7 @@ describe('Weather Controller', () => {
 
       expect(res.send).toHaveBeenCalledWith({
         weather: {
+          icon: expect.any(String),
           description: expect.any(String),
           temperature: expect.any(Number),
         },
