@@ -3,7 +3,9 @@ import { Request, Response, Router } from 'express';
 import { weatherService } from '../../services';
 
 export const weatherController = (req: Request, res: Response) => {
+  const browserLanguage = (req.headers['accept-language'] as string).split(',')[0];
   const city = req.query.city;
+
   const weather = weatherService.getWeather();
   res.send({ weather, city });
 };

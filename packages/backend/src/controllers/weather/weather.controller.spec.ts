@@ -8,7 +8,7 @@ import { weatherController } from './weather.controller';
 
 describe('Weather Controller', () => {
   describe('GET /', () => {
-    it('should respond with the weather and a city', async () => {
+    it('should respond with the weather and a city given the default language', async () => {
       const city = 'London';
 
       const req = {
@@ -30,6 +30,34 @@ describe('Weather Controller', () => {
           temperature: expect.any(Number),
         },
         city,
+      });
+    });
+
+    it('should respond withe the weather and a translated city name given Polish language', async () => {
+      const city = 'Warsaw';
+
+      const req = {
+        query: {
+          city,
+        },
+        headers: {
+          'Accept-Language': 'pl',
+        },
+      } as unknown as Request;
+
+      const res = {
+        send: jest.fn(),
+      } as unknown as Response;
+
+      weatherController(req, res);
+
+      expect(res.send).toHaveBeenCalledWith({
+        weather: {
+          icon: expect.any(String),
+          description: expect.any(String),
+          temperature: expect.any(Number),
+        },
+        city: 'Warszawa',
       });
     });
   });

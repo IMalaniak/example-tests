@@ -6,6 +6,7 @@ import { CustomWorld } from '../support/setup';
 
 type WorldWithParams = CustomWorld & {
   cityName: string;
+  browserLanguage: 'en' | 'pl';
   responseStatus: number;
   responseBody: {
     weather: {
@@ -22,14 +23,13 @@ Given('the city name is {string}', function (cityName: string) {
 });
 
 When('the user requests the weather', async function (this: WorldWithParams) {
-  const response = await fetch(`http://localhost:${this.port}/weather?city=${this.cityName}`);
+  const response = await fetch(`http://localhost:${this.port}/weather?city=${this.cityName}`, {
+    headers: {
+      'Accept-Language': this.browserLanguage,
+    },
+  });
   this.responseStatus = response.status;
   this.responseBody = await response.json();
-});
-
-Then('the response contains the city name', async function (this: WorldWithParams) {
-  equal(this.responseStatus, 200);
-  equal(this.responseBody.city, this.cityName);
 });
 
 Then(
@@ -51,5 +51,18 @@ Then(
   'the icon is either {string} or {string}',
   function (this: WorldWithParams, s: string, s2: string) {
     ok([s, s2].includes(this.responseBody.weather.icon));
+  }
+);
+Given(
+  /^the language set in browser is "([^"]*)"$/,
+  function (this: WorldWithParams, language: string) {
+    this.browserLanguage = language === 'Polish' ? 'pl' : 'en';
+  }
+);
+Then(
+  /^the response contains the translated city name and it should be "([^"]*)"$/,
+  function (this: WorldWithParams, translatedCityName: string) {
+    equal(this.responseStatus, 200);
+    equal(this.responseBody.city, translatedCityName);
   }
 );
