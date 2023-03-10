@@ -9,6 +9,7 @@ type WorldWithParams = CustomWorld & {
   responseStatus: number;
   responseBody: {
     weather: {
+      icon: string;
       temperature: number;
       description: string;
     };
@@ -43,5 +44,12 @@ Then(
   async function (this: WorldWithParams, int: number, int2: number) {
     ok(int <= this.responseBody.weather.temperature);
     ok(this.responseBody.weather.temperature <= int2);
+  }
+);
+
+Then(
+  'the icon is either {string} or {string}',
+  function (this: WorldWithParams, s: string, s2: string) {
+    ok([s, s2].includes(this.responseBody.weather.icon));
   }
 );

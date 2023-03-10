@@ -1,5 +1,6 @@
 {
   "weather": {
+    "icon": "cloud",
     "temperature": 10,
     "description": "cold"
   },

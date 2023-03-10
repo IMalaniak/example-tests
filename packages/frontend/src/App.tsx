@@ -20,7 +20,13 @@ function App() {
 
   return (
     <main className="flex flex-col justify-center items-center h-screen w-screen">
-      {weather && <Weather temperature={weather.temperature} description={weather.description} />}
+      {weather && (
+        <Weather
+          temperature={weather.temperature}
+          description={weather.description}
+          icon={weather.icon}
+        />
+      )}
       {city && <h1 className="text-4xl font-bold">{city}</h1>}
     </main>
   );

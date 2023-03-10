@@ -1,12 +1,13 @@
-export enum WeatherDescription {
+export enum WeatherState {
   COLD = 'cold',
   WARM = 'warm',
 }
 
 export type WeatherResponse = {
   weather: {
+    icon: 'sun' | 'cloud';
     temperature: number;
-    description: WeatherDescription;
+    description: WeatherState;
   };
   city: string;
 };

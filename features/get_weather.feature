@@ -7,3 +7,4 @@ Feature: Get weather description in the given city
         Then the response contains the city name
         And the weather description can be either "warm" or "cold"
         And the temperature is between -10 and 30
+        And the icon is either "sun" or "cloud"

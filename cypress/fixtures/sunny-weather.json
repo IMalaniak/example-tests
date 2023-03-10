@@ -1,5 +1,6 @@
 {
   "weather": {
+    "icon": "sun",
     "temperature": 24,
     "description": "warm"
   },
